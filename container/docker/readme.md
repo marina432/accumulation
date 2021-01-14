@@ -4,6 +4,9 @@
 1. docker stop #containId/Name
 2. docker start #containId/Name
 3. docker restart #containId/Name
+4. docker image inspect redis:latest| grep -i version       //查看镜像版本号
+5. docker ps -a      //不加-a，查看的是当前已启动的容器列表，要查看所有已创建的容器列表需加-a
+6. 
 
 
 
