@@ -1,0 +1,6 @@
+1. 分布式中间件：https://www.jianshu.com/p/d4406fc14528
+2. NIO：https://zhuanlan.zhihu.com/p/296337030
+3. kafka事务：https://blog.csdn.net/ransom0512/article/details/78840042
+4. ***Mysql去掉缓存翻译：https://mysqlserverteam.com/mysql-8-0-retiring-support-for-the-query-cache/
+5. 关于kafka producer幂等性：https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/
+6. https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/
