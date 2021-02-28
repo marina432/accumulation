@@ -1,3 +1,5 @@
+
+
 ### 1. Spring框架下IOC容器中对象的作用域有哪些？  
 1. singleton（默认作用域）：单例，每次从IOC容器中获取，都返回该单例对象  
 2. prototype：多例，每次从IOC容器中获取，都返回一个该类型的新对象  
@@ -59,20 +61,36 @@ ApplicationContext是BeanFactory的子类，因为古老的BeanFactory无法满�
 <2>BeanFactory，当使用BeanFactory实例化对象时，配置的bean不会马上被实例化，而是等到你使用该bean的时候（getBean）才会被实例化。好处是节约内存，坏处是速度比较慢。多用于移动设备的开发。
 <3>没有特殊要求的情况下，应该使用ApplicationContext完成。因为BeanFactory能完成的事情，ApplicationContext都能完成，并且提供了更多接近现在开发的功能。
 
-### 6. 说一下Bean的生命周期  
+### 6. 请说明一下springIOC原理是什么？如果你要实现IOC需要怎么做？请简单描述一下实现步骤？  
+- IOC原理：  
+  IoC（Inversion of Control，控制倒转）。这是spring的核心，贯穿始终。  
+  所谓IoC，对于Spring框架来说，就是由spring来负责控制对象的生命周期和对象间的关系。  
+  IoC的一个重点是在系统运行中，动态的向某个对象提供它所需要的其他对象。这一点是通过DI（Dependency Injection，依赖注入）来实现的。
+  比如对象A需要操作数据库，以前我们总是要在A中自己编写代码来获得一个Connection对象，
+  有了spring我们就只需要告诉spring，A中需要一个Connection，至于这个Connection怎么构造，何时构造，A不需要知道。
+  在系统运行时，spring会在适当的时候制造一个Connection，然后像打针一样，注射到A当中，这样就完成了对各个对象之间关系的控制。
+  A需要依赖Connection才能正常运行，而这个Connection是由spring注入到A中的，依赖注入的名字就这么来的。
+  那么DI是如何实现的呢？ Java 1.3之后一个重要特征是反射（reflection），它允许程序在运行的时候动态的生成对象、执行对象的方法、改变对象的属性，spring就是通过反射来实现注入的。  
+  
+- 实现IOC的步骤:  
+  1) 定义用来描述bean的配置的Java类;  
+  2) 解析bean的配置，將bean的配置信息转换为BeanDefinition对象保存在内存中，spring中采用HashMap进行对象存储，其中会用到一些xml解析技术;  
+  3) 遍历存放BeanDefinition的HashMap对象，逐条取出BeanDefinition对象，获取bean的配置信息，利用Java的反射机制实例化对象，將实例化后的对象保存在另外一个Map中即可。
+
+### 7. 说一下Bean的生命周期  
 参考阅读：https://www.cnblogs.com/zrtqsk/p/3735273.html  
 
-### 7. 请说一下@Controller与@RestController的区别？  
+### 8. 请说一下@Controller与@RestController的区别？  
 @RestController相当与@Controller + @ResponseBody两个注解的组合，该被@RestController注解的类下接口，
 只能返回数据，不能返回jsp、html页面，视图解析器无法解析jsp、html页面。
 > @ResponseBody注解表示方法的返回结果直接写入HTTP response body中。
 > 方法在使用@RequestMapping后，返回值通常会被解析为跳转路径，但在同时使用@ResponseBody注解后，返回值就不会被解析为跳转路径，
 > 而是直接写入HTTP response body中。  
 
-### 8. 
+### 9. 请问在以前的学习中有使用过Spring里面的注解吗？如果有请谈一下autowired 和resource区别是什么？  
+[Spring-@Autowired注解与@Resource注解.md](./注解/Spring-@Autowired注解与@Resource注解.md)
 
-
-
+### 
 
 
 
