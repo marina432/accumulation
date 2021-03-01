@@ -12,18 +12,21 @@
 
 
 ### 二、@Resource注解实现依赖注入（是J2EE的注解）
-> @Autowired实现注入规则:  
-> 先按byName+byType在容器中查找唯一组件(因为即使按byName找到了，但与属性类型不匹配也注入不成功)：  
-> 1. 如果找不到或找到多个，都报错。  
->> 使用@Resource(name="xxx"/type=X.class)，优先级高与默认。
+> @Resource实现注入规则:  
+> @Resource默认按照ByName自动注入，由J2EE提供，需要导入包javax.annotation.Resource。
+> @Resource有两个重要的属性：name和type，而Spring将@Resource注解的name属性解析为bean的名字，而type属性则解析为bean的类型。
+> 所以:  
+> 1.如果指定name属性，则使用byName的自动注入策略，如果找到且符合被@Resource注解的属性的类型，则注入成功；否则报错。    
+> 2.如果指定type属性，则使用byType自动注入策略。如果找不到则报错；如果找到多个再用byName筛选一下，如果能筛出唯一一个，则注入成功。否则其它情况都报错。    
+> 3.如果既不指定name也不指定type属性，这时按照byName策略从容器中查找：  
+> 1)如果找到，再看找到的这个对象的类型是否与被@Resource注解的属性的类型匹配，如果匹配，则注入成功；如果不匹配，则报错，注入失败；  
+> 2)如果没找到，则按byType策略从容器中查找，如果还无法找到或找到多个，都报错，注入失败；只有找到唯一一个，才注入成功。  
  
 
 
 ### 综上总结：
 1. @Autowired先用byType从容器中筛选出一个集合，然后在这个集合中通过"byName-默认属性名"或者@Quafier来筛选出唯一可以注入的对象。  
 ps：这里Quafier的优先级高于"byName-默认属性名"。
-   
-2. @Resource先用"byName-默认属性名"+"byType-默认属性类型"从容器中筛选出唯一一个对象注入，找不到就报错。  
 
-3. 有一点要明确，在Spring容器中byName可以唯一确定一个对象！！！  
+2. 有一点要明确，在Spring容器中byName可以唯一确定一个对象！！！  
 
