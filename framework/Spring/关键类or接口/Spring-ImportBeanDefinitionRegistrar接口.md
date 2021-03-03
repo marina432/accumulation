@@ -1,5 +1,13 @@
+### Spring官方动态注册bean套路：ImportBeanDefinitionRegistrar
+Spring官方在进行动态注册bean时基本套路都是借助ImportBeanDefinitionRegistrar接口
+（具体可参看@EnableConfigurationProperties注解中@Import({EnableConfigurationPropertiesRegistrar.class})进来的EnableConfigurationPropertiesRegistrar类的用法），
 
-
+### 原理：
+在[Spring-BeanFactoryPostProcessor接口.md](./关键类or接口/Spring-BeanFactoryPostProcessor接口.md)中提到，在BeanFactoryPostProcessor接口实现类中动态注册bean，
+得到的bean具有aop等功能。而ConfigurationClassPostProcessor类正是实现了BeanFactoryPostProcessor接口。  
+并且，所有实现了ImportBeanDefinitionRegistrar接口的类的都会被ConfigurationClassPostProcessor处理。  
+> 概括来说：通过在ImportBeanDefinitionRegistrar接口实现类中实现动态注册bean，实际就相当于在BeanFactoryPostProcessor接口实现类中动态注册bean，
+> 因此，ImportBeanDefinitionRegistrar中动态注册的bean是优先与依赖其的bean初始化的，也能被aop、validator等机制处理。
 
 
 参考阅读：https://zhuanlan.zhihu.com/p/30123517
