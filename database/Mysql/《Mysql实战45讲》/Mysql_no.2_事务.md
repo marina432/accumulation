@@ -33,7 +33,7 @@
 > 其中，"begin;/start transaction;"只是声明即将开启事务，但尚未开启，这时用"select * from innodb_trx\G;"还查不到事务。
 > 当声明的事务块内的第一条sql执行时才真正触发事务开启。  
 > 与上面两种显式方式不同，"start transaction with consistent snapshot;"语句会立即触发事务开启。 
-> 事务开启时，才会向Innodb引擎对事务系统申请事务id。  
+> 事务开启被触发时，才会向Innodb引擎对事务系统申请事务id。  
 > 另，实验证明："begin;/start transaction;/start transaction with consistent snapshot;"事务块声明命令会立即触发
 > 当前线程尚未提交的事务隐式提交。  --即：显式提交命令会触发当前线程尚未提交事务的隐式提交（事务是跟线程一对一绑定的）
 

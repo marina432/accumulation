@@ -22,7 +22,7 @@ Java中new出来的对象不一定在堆上，还有可能分配在栈上甚至�
 
 
 ### 二、TLAB(Thread-Local Allocation Buffer)
-
+参考阅读：https://www.jianshu.com/p/8be816cbb5ed
 
 
 

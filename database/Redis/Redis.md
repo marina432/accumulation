@@ -1,6 +1,6 @@
 ### Redis的Java客户端
 1. Jedis  
-   官方客户端，类似与JDBC，支持的Redis命令比较全，可以看作是对reids命令对包装。  
+   官方客户端，类似与JDBC，支持的Redis命令比较全，可以看作是对reids命令的包装。  
    缺点：基于BIO，性能不高；线程不安全；需要配置连接池管理连接。
 
 2. Lettuce  
@@ -15,7 +15,7 @@
 使用方式类似于MongoDBTemplate，JDBCTemplate或JPA  
 
 ### Spring Boot与Redis集成  
-引入spring-boot-starter-data-rdis，配置spring redis即可
+引入spring-boot-starter-data-redis，配置spring redis即可
 
 ### Spring Cache本地缓存框架与Redis集成  
 默认使用全局的cacheManager自动集成  

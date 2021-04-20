@@ -87,7 +87,7 @@ ApplicationContext是BeanFactory的子类，因为古老的BeanFactory无法满�
 > 方法在使用@RequestMapping后，返回值通常会被解析为跳转路径，但在同时使用@ResponseBody注解后，返回值就不会被解析为跳转路径，
 > 而是直接写入HTTP response body中。  
 
-### 9. 请问在以前的学习中有使用过Spring里面的注解吗？如果有请谈一下autowired 和resource区别是什么？  
+### 9. 请问在以前的学习中有使用过Spring里面的注解吗？如果有请谈一下@autowired 和@resource区别是什么？  
 [Spring-@Autowired注解与@Resource注解.md](../../framework/Spring/注解/Spring-@Autowired注解与@Resource注解.md)
 
 ### 
