@@ -2,4 +2,15 @@
 ```shell
 SHOW VARIABLES LIKE 'collation%';
 ```
-2. 
+2. 查询大小写敏感与否参数设置：  
+```shell
+mysql> show variables like 'lower%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| lower_case_file_system | ON    |
+| lower_case_table_names | 1     |
++------------------------+-------+
+2 rows in set, 1 warning (0.00 sec)
+```
+3. 
