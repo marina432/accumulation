@@ -14,7 +14,7 @@
   step2：InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation();   //参看：[InstantiationAwareBeanPostProcessor](./Bean生命周期内扩展点-22/InstantiationAwareBeanPostProcessor.md)  
   step3：SmartInstantiationAwareBeanPostProcessor.determineCandidateConstructors();  
   step4：MergedBeanDefinitionPostProcessor.postProcessMergedBeanDefinition();   //参看：[MergedBeanDefinitionPostProcessor](./Bean生命周期内扩展点-22/MergedBeanDefinitionPostProcessor.md)  
-  step5：InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation();
+  step5：InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation();  
   step6：SmartInstantiationAwareBeanPostProcessor.getEarlyBeanReference();
 
 - 阶段3：bean实例属性注入阶段(代称吧，代指介于对象实例化与初始化中间点过渡阶段)可扩展点：  

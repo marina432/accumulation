@@ -2,6 +2,8 @@
 ```shell
 SHOW VARIABLES LIKE 'collation%';
 ```
+> 参考阅读：http://c.biancheng.net/view/7543.html
+
 2. 查询大小写敏感与否参数设置：  
 ```shell
 mysql> show variables like 'lower%';
